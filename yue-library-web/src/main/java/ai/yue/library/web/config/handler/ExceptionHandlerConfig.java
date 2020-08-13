@@ -52,7 +52,7 @@ public class ExceptionHandlerConfig extends AbstractExceptionHandler {
 	@ResponseBody
 	@ExceptionHandler(ResultException.class)
 	public synchronized Result<?> resultExceptionHandler(ResultException e) {
-		var result = e.getResult();
+		Result<?> result = e.getResult();
 		ServletUtils.getResponse().setStatus(result.getCode());
 		log.error(result.toString());
 		ExceptionUtils.printException(e);

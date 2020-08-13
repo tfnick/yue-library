@@ -151,13 +151,13 @@ public class ServletUtils {
 		Console.log();
 		Console.log("打印请求头：");
 		Console.log("Headers：");
-		request.getHeaderNames().asIterator().forEachRemaining(headerName -> {
-			StringBuilder headerValues = new StringBuilder();
-			request.getHeaders(headerName).asIterator().forEachRemaining(headerValue -> {
-				headerValues.append(headerValue);
-			});;
-			Console.log("　　{}：{}", headerName, headerValues);
-		});;
+		Enumeration<String> headerNames = request.getHeaderNames();
+		while (headerNames.hasMoreElements()) {
+			String name = headerNames.nextElement();
+			//根据名称获取请求头的值
+			String values = request.getHeader(name);
+			Console.log("　　{}：{}", name, values);
+		}
 		
 		// 5. 打印Cookie
 		Console.log();

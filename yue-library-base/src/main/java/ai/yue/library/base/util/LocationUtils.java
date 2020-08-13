@@ -76,7 +76,7 @@ public class LocationUtils {
 	public static int getNearestLngAndLat(LocationIPO locationIPO, List<LocationIPO> locationIPOList) {
 		int minIndex = 0;
 		
-		var list = getDistance(locationIPO, locationIPOList);
+		List<Double> list = getDistance(locationIPO, locationIPOList);
 		for (int i = 0; i < list.size(); i++) {
 			if (list.get(i) < list.get(minIndex)) {
 				minIndex = i;

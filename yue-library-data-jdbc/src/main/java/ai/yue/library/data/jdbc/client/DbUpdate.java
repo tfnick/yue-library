@@ -313,7 +313,7 @@ class DbUpdate extends DbQuery {
 		JSONObject paramJson = new JSONObject();
 		if (ArrayUtil.isNotEmpty(uniqueKeys)) {
 			for (String uniqueKey : uniqueKeys) {
-				var uniqueValue = sortJson.get(uniqueKey);
+				Object uniqueValue = sortJson.get(uniqueKey);
 				paramJson.put(uniqueKey, uniqueValue);
 			}
 		}

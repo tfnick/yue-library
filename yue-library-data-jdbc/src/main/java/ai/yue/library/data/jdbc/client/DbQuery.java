@@ -44,7 +44,7 @@ class DbQuery extends DbBase {
      * @return JSON对象
      */
 	public JSONObject queryForJson(String sql, JSONObject paramJson) {
-		var list = queryForList(sql, paramJson);
+		List<JSONObject> list = queryForList(sql, paramJson);
 		return resultToJson(list);
 	}
     

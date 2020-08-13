@@ -48,7 +48,7 @@ public class OpenLoginController {
 	@PostMapping("/login")
 	public Result<?> login(@RequestParam("cellphone") String cellphone, @RequestParam("password") String password) {
 		// 1. 确认用户
-		var loginResult = userService.login(cellphone, password);
+		Result<?> loginResult = userService.login(cellphone, password);
 		loginResult.successValidate();
 		UserDO userDO = loginResult.getData(UserDO.class);
 		

@@ -181,8 +181,8 @@ public class ListUtils extends ListUtil {
 	public static List<JSONObject> sort(List<JSONObject> list, String sortKey, SortEnum sortEnum) {
 		Collections.sort(list, new Comparator<JSONObject>() {
 			public int compare(JSONObject json1, JSONObject json2) {
-				var json1value = json1.get(sortKey);
-				var json2value = json2.get(sortKey);
+				Object json1value = json1.get(sortKey);
+				Object json2value = json2.get(sortKey);
 				if (sortEnum == SortEnum.升序) {
 					return CompareUtil.compare(json1value, json2value, false);
 				} else {
@@ -208,8 +208,8 @@ public class ListUtils extends ListUtil {
 			public int compare(T o1, T o2) {
 				JSONObject json1 = Convert.toJSONObject(o1);
 				JSONObject json2 = Convert.toJSONObject(o2);
-				var json1value = json1.get(sortField);
-				var json2value = json2.get(sortField);
+				Object json1value = json1.get(sortField);
+				Object json2value = json2.get(sortField);
 				if (sortEnum == SortEnum.升序) {
 					return CompareUtil.compare(json1value, json2value, false);
 				} else {

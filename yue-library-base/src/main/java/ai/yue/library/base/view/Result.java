@@ -99,7 +99,7 @@ public class Result<T> implements Serializable {
 	@SuppressWarnings("unchecked")
 	public List<JSONObject> dataToJsonList() {
 		if (data instanceof List) {
-			var dataTemp = (List<?>) data;
+			List<?> dataTemp = (List<?>) data;
 			if (ListUtils.isNotEmpty(dataTemp)) {
 				if (dataTemp.get(0) instanceof JSONObject) {
 		            return (List<JSONObject>) data;

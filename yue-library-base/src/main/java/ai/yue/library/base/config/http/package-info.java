@@ -1,6 +1,5 @@
 /**
- * RestTemplate配置
- * <p>默认开启HTTPS通用支持
+ * RestTemplate-HTTPS客户端
  * 
  * @author	ylyue
  * @since	2019年10月13日

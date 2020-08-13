@@ -219,7 +219,7 @@ public class MapUtils extends MapUtil {
 	 * @param replaceKey	替换的key
 	 */
 	public static void replaceKey(Map<String, Object> paramMap, String key, String replaceKey) {
-		var value = paramMap.get(key);
+		Object value = paramMap.get(key);
 		paramMap.put(replaceKey, value);
 		paramMap.remove(key);
 	}

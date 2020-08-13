@@ -198,7 +198,7 @@ public class DbBase {
 	private synchronized void paramToWhereSql(StringBuffer whereSql, final JSONObject paramJson, final String condition) {
 		whereSql.append(" AND ");
 		whereSql.append(dialect.getWrapper().wrap(condition));
-		var value = paramJson.get(condition);
+		Object value = paramJson.get(condition);
 		if (null == value) {
 			whereSql.append(" IS :");
 			whereSql.append(condition);
