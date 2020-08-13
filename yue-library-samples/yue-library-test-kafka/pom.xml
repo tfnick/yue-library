@@ -9,8 +9,8 @@
         <version>2.1.2</version>
     </parent>
 
-    <groupId>org.example</groupId>
-    <artifactId>yue-library-test-mp</artifactId>
+    <groupId>yue-library-test-kafka</groupId>
+    <artifactId>yue-library-test-kafka</artifactId>
     <version>1.0-SNAPSHOT</version>
 
     <dependencies>
@@ -21,12 +21,7 @@
 
         <dependency>
             <groupId>ai.ylyue</groupId>
-            <artifactId>yue-library-data-redis</artifactId>
-        </dependency>
-
-        <dependency>
-            <groupId>ai.ylyue</groupId>
-            <artifactId>yue-library-data-mp</artifactId>
+            <artifactId>yue-library-message-kafka</artifactId>
         </dependency>
 
         <dependency>
@@ -41,13 +36,4 @@
         </dependency>
 
     </dependencies>
-
-<!--    <repositories>-->
-<!--        <repository>-->
-<!--            <id>jitpack.io</id>-->
-<!--            <url>https://jitpack.io</url>-->
-<!--        </repository>-->
-<!--    </repositories>-->
-
-
 </project>

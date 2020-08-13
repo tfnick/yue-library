@@ -38,10 +38,19 @@
 		<module>yue-library-pay</module>
 		<!-- mybatis plus模块 -->
 		<module>yue-library-data-mp</module>
+		<!-- kafka 消息模块 -->
+		<module>yue-library-message-kafka</module>
+		<module>yue-library-job</module>
+		<module>yue-library-sms</module>
+		<module>yue-library-mail</module>
+		<module>yue-library-flow-camunda</module>
+		<module>yue-library-rule-qlexpress</module>
+		<module>yue-library-http-resttemplate</module>
+		<module>yue-library-data-oss</module>
 	</modules>
 	
 	<properties>
-		<revision>2.1.0</revision>
+		<revision>2.1.2</revision>
 		<sha1 />
 		<changelist></changelist>
 		<spring-cloud-alibaba.version>2.1.2.RELEASE</spring-cloud-alibaba.version>
@@ -118,6 +127,11 @@
 			<dependency>
 				<groupId>ai.ylyue</groupId>
 				<artifactId>yue-library-data-mp</artifactId>
+				<version>${revision}${sha1}${changelist}</version>
+			</dependency>
+			<dependency>
+				<groupId>ai.ylyue</groupId>
+				<artifactId>yue-library-message-kafka</artifactId>
 				<version>${revision}${sha1}${changelist}</version>
 			</dependency>
 			

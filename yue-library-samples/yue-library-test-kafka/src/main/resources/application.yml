@@ -1,0 +1,12 @@
+server:
+  port: 8080
+spring:
+  application:
+    name: test-app
+  profiles:
+    include:
+      - yue-library-base
+      - yue-library-message-kafka
+      - yue-library-web
+    active:
+      - dev

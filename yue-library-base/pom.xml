@@ -16,7 +16,7 @@
 	</properties>
 	
 	<dependencies>
-		<!-- Spring Boot - start -->
+		<!-- Spring Boot -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-json</artifactId>
@@ -41,8 +41,8 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-configuration-processor</artifactId>
 		</dependency>
-		<!-- Spring Boot - end -->
-		
+
+		<!-- JSON and JSONPATH tools -->
 		<dependency>
 			<groupId>com.alibaba</groupId>
 			<artifactId>fastjson</artifactId>
@@ -52,7 +52,8 @@
 			<groupId>org.projectlombok</groupId>
 			<artifactId>lombok</artifactId>
 		</dependency>
-		
+
+		<!-- All common utils such as Date String Number Sort MD5 Base64 Hex Collection -->
 		<dependency>
 			<groupId>cn.hutool</groupId>
 			<artifactId>hutool-core</artifactId>

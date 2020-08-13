@@ -1,0 +1,13 @@
+spring:
+  profiles:
+    include:
+      - yue-library-base
+#  kafka:
+#    producer:
+#    bootstrap-servers: 127.0.0.1:9092
+#    consumer:
+#      bootstrap-servers: 127.0.0.1:9092
+#      enable-auto-commit: false
+#      group-id: kafka_cunsumer_group
+#    listener:
+#      ack-mode: record
