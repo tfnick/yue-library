@@ -42,7 +42,7 @@
 	<properties>
 		<revision>2.1.0</revision>
 		<sha1 />
-		<changelist>-SNAPSHOT</changelist>
+		<changelist>-RELEASE</changelist>
 		<spring-cloud-alibaba.version>2.1.2.RELEASE</spring-cloud-alibaba.version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
