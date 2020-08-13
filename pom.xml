@@ -36,13 +36,14 @@
 		<module>yue-library-auth-service</module>
 		<!-- 基础库-pay模块 -->
 		<module>yue-library-pay</module>
+		<!-- mybatis plus模块 -->
 		<module>yue-library-data-mp</module>
 	</modules>
 	
 	<properties>
 		<revision>2.1.0</revision>
 		<sha1 />
-		<changelist>-RELEASE</changelist>
+		<changelist></changelist>
 		<spring-cloud-alibaba.version>2.1.2.RELEASE</spring-cloud-alibaba.version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
@@ -112,6 +113,11 @@
 			<dependency>
 				<groupId>ai.ylyue</groupId>
 				<artifactId>yue-library-pay</artifactId>
+				<version>${revision}${sha1}${changelist}</version>
+			</dependency>
+			<dependency>
+				<groupId>ai.ylyue</groupId>
+				<artifactId>yue-library-data-mp</artifactId>
 				<version>${revision}${sha1}${changelist}</version>
 			</dependency>
 			

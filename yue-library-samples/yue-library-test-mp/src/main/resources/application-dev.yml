@@ -1,0 +1,24 @@
+spring:
+  datasource:
+    druid:
+      url: jdbc:mysql://localhost:3306/framework?serverTimezone=GMT%2B8&autoReconnect=true&useUnicode=yes&characterEncoding=UTF-8&useSSL=false
+      username: root
+      password: root
+  redis:
+    lettuce:
+      pool:
+        max-active: 256
+        max-idle: 64
+        max-wait: 30000
+        min-idle: 32
+    password: myredis
+    sentinel:
+      master: mymaster
+      nodes:
+      - 10.118.238.66:26379
+      - 10.118.238.48:26379
+      - 10.118.238.71:26379
+
+yue:
+  mybatis-plus:
+    enableVersion: true

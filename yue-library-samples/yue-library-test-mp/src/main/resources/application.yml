@@ -1,0 +1,12 @@
+server:
+  port: 8080
+spring:
+  application:
+    name: test
+  profiles:
+    include:
+      - yue-library-base
+      - yue-library-data-mp
+      - yue-library-data-redis
+    active:
+      - dev

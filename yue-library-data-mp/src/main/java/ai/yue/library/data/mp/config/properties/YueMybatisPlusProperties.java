@@ -7,7 +7,10 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 @ConfigurationProperties("yue.mybatis-plus")
 public class YueMybatisPlusProperties {
 
-    private String echo = "start yue libary-data-mp success";
+    //是否启用乐观锁版本控制
+    private Boolean enableVersion = Boolean.FALSE;
+    //自动填充create_time,update_time,version
+    private Boolean autoFill = Boolean.TRUE;
 
 
 }
