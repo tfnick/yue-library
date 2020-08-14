@@ -13,7 +13,7 @@ import org.slf4j.LoggerFactory;
 
 public class MdcDelegateListener implements ExecutionListener {
 
-    private static final Logger logger = LoggerFactory.getLogger(MdcDelegateListener.class);
+    private static final Logger log = LoggerFactory.getLogger(MdcDelegateListener.class);
 
     @Override
     public void notify(DelegateExecution execution) throws Exception {
@@ -24,10 +24,10 @@ public class MdcDelegateListener implements ExecutionListener {
             //MDC.put(FmpConstants.MDC_MISSION_NO, (String) execution.getVariable(FmpConstants.MDC_MISSION_NO));
             //MDC.put(FmpConstants.MDC_PROCESS_INS_IN, execution.getProcessInstanceId());
 
-            logger.info(execution.getProcessDefinitionId() + " - " +  eventName + " - " + execution.getCurrentActivityName());
+            log.info(execution.getProcessDefinitionId() + " - " +  eventName + " - " + execution.getCurrentActivityName());
         } else if ("end".equals(eventName)) {
 
-            logger.info(execution.getProcessDefinitionId() + " - " +  eventName + " - " + execution.getCurrentActivityName());
+            log.info(execution.getProcessDefinitionId() + " - " +  eventName + " - " + execution.getCurrentActivityName());
 
             //MDC.remove(FmpConstants.MDC_MISSION_NO);
             //MDC.remove(FmpConstants.MDC_PROCESS_INS_IN);

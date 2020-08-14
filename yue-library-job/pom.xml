@@ -3,13 +3,29 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
-        <artifactId>yue-library</artifactId>
         <groupId>ai.ylyue</groupId>
-        <version>2.1.2</version>
+        <artifactId>yue-library</artifactId>
+        <version>${revision}${sha1}${changelist}</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>yue-library-job</artifactId>
 
+    <properties>
+        <schedulerx2.version>1.1.4.RELEASE</schedulerx2.version>
+    </properties>
 
+    <dependencies>
+
+        <dependency>
+            <groupId>ai.ylyue</groupId>
+            <artifactId>yue-library-base</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>com.aliyun.schedulerx</groupId>
+            <artifactId>schedulerx2-spring-boot-starter</artifactId>
+            <version>${schedulerx2.version}</version>
+        </dependency>
+    </dependencies>
 </project>

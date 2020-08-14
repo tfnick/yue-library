@@ -1,0 +1,9 @@
+spring:
+  profiles:
+    include:
+      - yue-library-base
+#yue:
+#  aliyun-oss:
+#    endpoint: xxxx
+#    accessKeyId: yyyy
+#    accessKeySecret: zzzz

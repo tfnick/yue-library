@@ -1,0 +1,11 @@
+spring:
+  profiles:
+    include:
+      - yue-library-base
+#spring:
+#  schedulerx2:
+#    aliyunAccessKey: ${aliyunAccessKey}
+#    aliyunSecretKey: '${aliyunSecretKey}     '
+#    endpoint: ${endpoint}
+#    groupId: ${groupId}
+#    namespace: ${namespace}
