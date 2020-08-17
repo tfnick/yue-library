@@ -44,7 +44,6 @@
 		<module>yue-library-mail</module>
 		<module>yue-library-flow-camunda</module>
 		<module>yue-library-rule-qlexpress</module>
-		<module>yue-library-http-resttemplate</module>
 		<module>yue-library-job</module>
 		<module>yue-library-data-oss</module>
 	</modules>
@@ -158,12 +157,6 @@
 			<dependency>
 				<groupId>ai.ylyue</groupId>
 				<artifactId>yue-library-rule-qlexpress</artifactId>
-				<version>${revision}${sha1}${changelist}</version>
-			</dependency>
-
-			<dependency>
-				<groupId>ai.ylyue</groupId>
-				<artifactId>yue-library-http-resttemplate</artifactId>
 				<version>${revision}${sha1}${changelist}</version>
 			</dependency>
 
