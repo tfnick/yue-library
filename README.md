@@ -14,6 +14,7 @@
 - [阿里云Oss Web端上传流程](https://help.aliyun.com/document_detail/31926.html?spm=a2c4g.11186623.6.643.75a76212ODpfe2)
 - [阿里云Oss 视频截图生成](https://help.aliyun.com/document_detail/64555.html?spm=a2c4g.11186623.6.1743.1f65218ctlXyqO)
 - [阿里云Oss 如何(自动)删除](https://developer.aliyun.com/ask/206686)
+- [网络图文如何发布到微信-重要](https://www.cnblogs.com/gogood/p/6544439.html)
 
 #### app认证机制
 
