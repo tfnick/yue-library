@@ -9,7 +9,7 @@ import lombok.Data;
  * @since	2018年11月6日
  */
 @Data
-@ConfigurationProperties("yue.rest")
+@ConfigurationProperties("yue.rest.sync")
 public class RestProperties {
 	
 	/**
@@ -25,5 +25,6 @@ public class RestProperties {
 	 * <p>默认：系统“默认”的超时设置
 	 */
 	private Integer readTimeout;
-	
+
+
 }

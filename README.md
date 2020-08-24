@@ -15,6 +15,9 @@
 - [阿里云Oss 视频截图生成](https://help.aliyun.com/document_detail/64555.html?spm=a2c4g.11186623.6.1743.1f65218ctlXyqO)
 - [阿里云Oss 如何(自动)删除](https://developer.aliyun.com/ask/206686)
 - [网络图文如何发布到微信-重要](https://www.cnblogs.com/gogood/p/6544439.html)
+- [使用redis+@scheduled实现简单任务调度,解决access_token刷新问题](https://www.cnblogs.com/slowcity/p/11671231.html)
+- [@scheduled简单调度的问题](https://www.cnblogs.com/muxi0407/p/11936221.html)
+
 
 #### app认证机制
 
