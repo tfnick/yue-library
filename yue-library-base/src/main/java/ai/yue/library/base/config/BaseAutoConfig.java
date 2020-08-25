@@ -5,6 +5,7 @@ import org.springframework.boot.context.properties.EnableConfigurationProperties
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
+import org.springframework.http.client.HttpComponentsClientHttpRequestFactory;
 import org.springframework.web.client.RestTemplate;
 
 import ai.yue.library.base.annotation.api.version.ApiVersionProperties;
@@ -18,6 +19,8 @@ import ai.yue.library.base.util.ApplicationContextUtils;
 import ai.yue.library.base.util.SpringUtils;
 import ai.yue.library.base.validation.Validator;
 import lombok.extern.slf4j.Slf4j;
+
+import javax.net.ssl.SSLContext;
 
 /**
  * base bean 自动配置
@@ -56,6 +59,21 @@ public class BaseAutoConfig {
 //	}
 
 
+
+//	public HttpComponentsClientHttpRequestFactory generateHttpsRequestFactory() {
+//		try {
+//
+//			CloseableHttpClient httpClient = httpClientBuilder.build();
+//			HttpComponentsClientHttpRequestFactory factory = new HttpComponentsClientHttpRequestFactory();
+//			factory.setHttpClient(httpClient);
+//			factory.setConnectTimeout(10 * 1000);
+//			factory.setReadTimeout(30 * 1000);
+//			return factory;
+//		} catch (Exception e) {
+//			throw new RuntimeException("创建HttpsRestTemplate失败", e);
+//		}
+//
+//	}
 	
 	@Bean
 	@ConditionalOnMissingBean

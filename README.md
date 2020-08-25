@@ -15,6 +15,9 @@
 - [阿里云Oss 视频截图生成](https://help.aliyun.com/document_detail/64555.html?spm=a2c4g.11186623.6.1743.1f65218ctlXyqO)
 - [阿里云Oss 如何(自动)删除](https://developer.aliyun.com/ask/206686)
 - [网络图文如何发布到微信-重要](https://www.cnblogs.com/gogood/p/6544439.html)
+- [使用redis+@scheduled实现简单任务调度,解决access_token刷新问题](https://www.cnblogs.com/slowcity/p/11671231.html)
+- [@scheduled简单调度的问题](https://www.cnblogs.com/muxi0407/p/11936221.html)
+
 
 #### app认证机制
 
@@ -32,9 +35,7 @@
 #### 费用
 
 - kafka- ￥ 19,002元/年
-- redis,1G 单节点 单副本 不支持数据持久化 数据可靠性 ￥ 540元/年
-- redis,256M 单节点 双副本 支持数据持久化 数据可靠性 ￥ 255元/年
-- redis,1G 单节点 双副本 支持数据持久化 数据可靠性 ￥ 1020元/年
+- redis,1G 单节点 ￥ 540元/年
 - ecs-共享标准型 s6 	ecs.s6-c1m2.large	2 vCPU	4 GiB	-	2.5 GHz/3.2 GHz	0.2 Gbps	20 万 PPS	-	是	1M 带宽 ￥ 1400.0 /年
 - ecs-共享标准型 g6e  	ecs.g6e.large	4 vCPU	8 GiB	2.5 GHz/3.2 GHz	1.2 Gbps	90 万 PPS	2.1 万	是	1M 带宽 ￥ 2500.0 /月
 - mysql-通用型 rds.mysql.s3.large 4C 8GB（通用型） 2000 5000  ¥ 10914.00/年
@@ -44,17 +45,11 @@
 
 #### 推荐
 
-- 负载均衡[EIP(弹性IP) + SLB负载均衡] + ecs服务器(2c4G) + ecs自建mysql(2c4G->后期转RDS) + 云redis(256M 单节点 双副本) + oss(1T)
-- 域名，必须过审核，买一个过期的？
+- 网络入口[EIP(弹性IP) + SLB负载均衡] + ecs服务器(2c4G) + ecs自建mysql(2c4G->后期转RDS) + 云redis(256M) + oss(1T)
 
-#### 其他
 
-- [专有网络 VPC](https://help.aliyun.com/product/27706.html)
-- [负载均衡 SLB](https://help.aliyun.com/product/27706.html)
-- [交换机](https://help.aliyun.com/product/27706.html)
-- [弹性IP EIP](https://help.aliyun.com/product/27706.html)
-- [IDC里常见划分内网区 外网区 内外网代理区]
 
-#### 常用命令 
+#### 近期优秀源码阅读推荐
 
-- telnet remote_ip port
+- [hadoop0.23.0](http://blog.sina.com.cn/s/blog_4a1f59bf01010i9r.html)
+- [redission](https://github.com/redisson/redisson.git)

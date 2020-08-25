@@ -44,10 +44,11 @@ public class RedisAutoConfig {
 		RedisTemplate<String, Object> redisTemplate = new RedisTemplate<>();
 		redisTemplate.setConnectionFactory(redisConnectionFactory);
 		
-		// 支持FastJson进行Redis存储对象序列/反序列化
-		if (redisProperties.getRedisSerializerEnum() != RedisSerializerEnum.JDK) {
+		// 默认使用FastJson进行Redis存储对象序列/反序列化,不使用JDK
+		if (redisProperties.getRedisSerializerEnum() != RedisSerializerEnum.FASTJSON) {
 			redisTemplate.setDefaultSerializer(redisProperties.getRedisSerializerEnum().getRedisSerializer());
 		}
+		//Key值的序列化为StringRedisSerializer
 		StringRedisSerializer stringRedisSerializer = new StringRedisSerializer();
 		redisTemplate.setKeySerializer(stringRedisSerializer);
 		redisTemplate.setHashKeySerializer(stringRedisSerializer);
@@ -62,7 +63,7 @@ public class RedisAutoConfig {
 		log.info("【初始化配置-Redis客户端】配置项：{}，默认使用 {} 进行Redis存储对象序列/反序列化。Bean：Redis ... 已初始化完毕。", 
 				RedisProperties.PREFIX,
 				ClassUtils.getClassName(RedisSerializerEnum.class, false).concat(".JDK"));
-		return new Redis(redisTemplate, stringRedisTemplate);
+		return new Redis(redisTemplate);
 	}
 	
 }
