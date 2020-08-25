@@ -45,5 +45,11 @@
 
 #### 推荐
 
-- 网络入口[EIP(弹性IP) + SLB负载均衡] + ecs服务器(2c4G) + ecs自建mysql(2c4G->后期转RDS) + 云redis(1G) + oss(1T)
+- 网络入口[EIP(弹性IP) + SLB负载均衡] + ecs服务器(2c4G) + ecs自建mysql(2c4G->后期转RDS) + 云redis(256M) + oss(1T)
 
+
+
+#### 近期优秀源码阅读推荐
+
+- [hadoop0.23.0](http://blog.sina.com.cn/s/blog_4a1f59bf01010i9r.html)
+- [redission](https://github.com/redisson/redisson.git)

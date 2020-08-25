@@ -3,10 +3,7 @@ package ai.yue.library.data.redis.client;
 import java.util.Map;
 import java.util.Set;
 import java.util.concurrent.TimeUnit;
-
 import org.springframework.data.redis.core.RedisTemplate;
-import org.springframework.data.redis.core.StringRedisTemplate;
-
 import ai.yue.library.base.convert.Convert;
 import ai.yue.library.base.util.StringUtils;
 import lombok.AllArgsConstructor;
@@ -24,10 +21,7 @@ import lombok.extern.slf4j.Slf4j;
 public class Redis {
 
 	RedisTemplate<String, Object> redisTemplate;
-	StringRedisTemplate stringRedisTemplate;
-	
-	// Redis分布式锁
-	
+
 	/**
 	 * Redis分布式锁-加锁
 	 * <p>可用于实现接口幂等性、秒杀业务等场景需求
@@ -39,15 +33,15 @@ public class Redis {
 	public boolean lock(String lockKey, Long lockTimeout) {
 		String value = lockTimeout.toString();
 		// 1. 设置锁
-		if (stringRedisTemplate.opsForValue().setIfAbsent(lockKey, value)) {
+		if (redisTemplate.opsForValue().setIfAbsent(lockKey, value)) {
 			return true;
 		}
 		// 2. 锁设置失败，拿到当前锁
-		String currentValue = stringRedisTemplate.opsForValue().get(lockKey);
+		String currentValue = (String)redisTemplate.opsForValue().get(lockKey);
 		// 3. 判断当前锁是否过期
 		if (!StringUtils.isEmpty(currentValue) && Long.parseLong(currentValue) < System.currentTimeMillis()) {
 			// 4. 锁已过期 ，设置新锁同时得到上一个锁
-			String oldValue = stringRedisTemplate.opsForValue().getAndSet(lockKey, value);
+			String oldValue = (String)redisTemplate.opsForValue().getAndSet(lockKey, value);
 			// 5. 确认新锁是否设置成功（判断当前锁与上一个锁是否相等）
 			if (!StringUtils.isEmpty(oldValue) && oldValue.equals(currentValue)) {
 				// 此处只会有一个线程拿到锁
@@ -66,9 +60,9 @@ public class Redis {
 	public void unlock(String lockKey, Long lockTimeout) {
 		String value = lockTimeout.toString();
 		try {
-			String currentValue = stringRedisTemplate.opsForValue().get(lockKey);
+			String currentValue = (String)redisTemplate.opsForValue().get(lockKey);
 			if (StringUtils.isNotEmpty(currentValue) && currentValue.equals(value)) {
-				stringRedisTemplate.opsForValue().getOperations().delete(lockKey);
+				redisTemplate.opsForValue().getOperations().delete(lockKey);
 			}
 		} catch (Exception e) {
 			log.error("【redis分布式锁】解锁异常，{}", e);
@@ -84,7 +78,7 @@ public class Redis {
 	 * @return key的剩余生存时间（单位：秒）
 	 */
 	public long ttl(String key) {
-		return stringRedisTemplate.getExpire(key);
+		return redisTemplate.getExpire(key);
 	}
 	
 	/**
@@ -94,7 +88,7 @@ public class Redis {
 	 * @param timeout 过期时间（单位：秒）
 	 */
 	public void expire(String key, long timeout) {
-		stringRedisTemplate.expire(key, timeout, TimeUnit.SECONDS);
+		redisTemplate.expire(key, timeout, TimeUnit.SECONDS);
 	}
 	
 	/**
@@ -105,7 +99,7 @@ public class Redis {
 	 * @return 递增后的值
 	 */
 	public long incr(String key, long delta) {
-		return stringRedisTemplate.opsForValue().increment(key, delta);
+		return redisTemplate.opsForValue().increment(key, delta);
 	}
 	
 	/**
@@ -115,7 +109,7 @@ public class Redis {
 	 * @return keys
 	 */
 	public Set<String> keys(String pattern) {
-		return stringRedisTemplate.keys(pattern);
+		return redisTemplate.keys(pattern);
 	}
 	
 	/**
@@ -124,20 +118,10 @@ public class Redis {
 	 * @param key 不能为空
 	 */
 	public void del(String key) {
-		stringRedisTemplate.delete(key);
+		redisTemplate.delete(key);
 	}
 	
 	// get set ...
-	
-	/**
-	 * 实现命令：SET key value，设置一个key-value（将字符串对象 value 关联到 key）
-	 * 
-	 * @param key 不能为空
-	 * @param value 字符串对象
-	 */
-	public void set(String key, String value) {
-		stringRedisTemplate.opsForValue().set(key, value);
-	}
 	
 	/**
 	 * 实现命令：SET key value，设置一个key-value（将可序列化对象 value 关联到 key）
@@ -159,26 +143,15 @@ public class Redis {
 	public void set(String key, Object value, long timeout) {
 		redisTemplate.opsForValue().set(key, value, timeout, TimeUnit.SECONDS);
 	}
-	
-	/**
-	 * 实现命令：SET key value EX seconds，设置key-value和超时时间（秒）
-	 * 
-	 * @param key 不能为空
-	 * @param value 字符串对象
-	 * @param timeout 超时时间（单位：秒）
-	 */
-	public void set(String key, String value, long timeout) {
-		stringRedisTemplate.opsForValue().set(key, value, timeout, TimeUnit.SECONDS);
-	}
-	
+
 	/**
 	 * 实现命令：GET key，返回 key所关联的字符串值。
 	 * 
 	 * @param key 不能为空
 	 * @return value
 	 */
-	public String get(String key) {
-		return stringRedisTemplate.opsForValue().get(key);
+	public Object get(String key) {
+		return redisTemplate.opsForValue().get(key);
 	}
 	
 	/**
@@ -214,7 +187,7 @@ public class Redis {
 	 * @param value 设置的值
 	 */
 	public void hset(String key, String hashKey, Object value) {
-		stringRedisTemplate.opsForHash().put(key, hashKey, value);
+		redisTemplate.opsForHash().put(key, hashKey, value);
 	}
 	
 	/**
@@ -226,7 +199,7 @@ public class Redis {
 	 * @return hashKey的值
 	 */
 	public Object hget(String key, String hashKey) {
-		return stringRedisTemplate.opsForHash().get(key, hashKey);
+		return redisTemplate.opsForHash().get(key, hashKey);
 	}
 	
 	/**
@@ -240,7 +213,7 @@ public class Redis {
 	 * @return hashKey的反序列化对象
 	 */
 	public <T> T hget(String key, String hashKey, Class<T> clazz) {
-		return Convert.convert(stringRedisTemplate.opsForHash().get(key, hashKey), clazz);
+		return Convert.convert(redisTemplate.opsForHash().get(key, hashKey), clazz);
 	}
 	
 	/**
@@ -251,7 +224,7 @@ public class Redis {
 	 * @param hashKeys 不能为空
 	 */
 	public void hdel(String key, Object... hashKeys) {
-		stringRedisTemplate.opsForHash().delete(key, hashKeys);
+		redisTemplate.opsForHash().delete(key, hashKeys);
 	}
 	
 	/**
@@ -262,7 +235,7 @@ public class Redis {
 	 * @return map
 	 */
 	public Map<Object, Object> hgetall(String key) {
-		return stringRedisTemplate.opsForHash().entries(key);
+		return redisTemplate.opsForHash().entries(key);
 	}
 	
 	// List（列表）
@@ -275,7 +248,7 @@ public class Redis {
 	 * @return 执行 LPUSH命令后，列表的长度。
 	 */
 	public long lpush(String key, String value) {
-		return stringRedisTemplate.opsForList().leftPush(key, value);
+		return redisTemplate.opsForList().leftPush(key, value);
 	}
 	
 	/**
@@ -286,7 +259,7 @@ public class Redis {
 	 * @return 执行 LPUSH命令后，列表的长度。
 	 */
 	public long rpush(String key, String value) {
-		return stringRedisTemplate.opsForList().rightPush(key, value);
+		return redisTemplate.opsForList().rightPush(key, value);
 	}
 	
 	/**
@@ -295,8 +268,8 @@ public class Redis {
 	 * @param key 不能为空
 	 * @return 列表key的头元素。
 	 */
-	public String lpop(String key) {
-		return stringRedisTemplate.opsForList().leftPop(key);
+	public Object lpop(String key) {
+		return redisTemplate.opsForList().leftPop(key);
 	}
 	
 }
