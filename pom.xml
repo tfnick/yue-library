@@ -66,6 +66,8 @@
 		<jpush.version>3.4.4</jpush.version>
 		<httpcore.version>4.4.13</httpcore.version>
 		<httpclient.version>4.5.12</httpclient.version>
+		<easythread.version>0.6.0</easythread.version>
+		<redission.version>3.13.3</redission.version>
 	</properties>
 	
 	<dependencyManagement>
@@ -262,6 +264,20 @@
 				<artifactId>httpclient</artifactId>
 				<version>${httpclient.version}</version>
 			</dependency>
+
+			<!-- threadPool -->
+			<dependency>
+				<groupId>com.github.yjfnypeu</groupId>
+				<artifactId>EasyThread</artifactId>
+				<version>${easythread.version}</version>
+			</dependency>
+
+			<!-- redis and redission -->
+			<dependency>
+				<groupId>org.redisson</groupId>
+				<artifactId>redisson</artifactId>
+				<version>${redission.version}</version>
+			</dependency>
 		</dependencies>
 	</dependencyManagement>
 	
@@ -269,6 +285,10 @@
 		<repository>
 			<id>aliyun</id>
 			<url>https://maven.aliyun.com/repository/central</url>
+		</repository>
+		<repository>
+			<id>jitpack.io</id>
+			<url>https://www.jitpack.io</url>
 		</repository>
 	</repositories>
 	
