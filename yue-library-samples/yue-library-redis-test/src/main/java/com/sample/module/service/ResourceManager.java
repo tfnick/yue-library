@@ -47,7 +47,7 @@ public class ResourceManager {
     @PostConstruct
     public void init(){
         taskPool = EasyThread.Builder.createFixed(MAX_TASK_THREADS).build();
-        consumerPool = EasyThread.Builder.createFixed(MAX_CONSUMER_THREADS).build();
+        consumerPool = EasyThread.Builder.createCacheable().build();
     }
 
     @PreDestroy

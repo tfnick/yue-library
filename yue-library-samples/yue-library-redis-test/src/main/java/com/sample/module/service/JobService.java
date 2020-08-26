@@ -7,6 +7,7 @@ import org.redisson.api.RedissonClient;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.scheduling.annotation.Async;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 
@@ -27,29 +28,43 @@ public class JobService {
     /**
      * 单线程中运行
      */
-//    @Scheduled(cron = "0/10 * * * * ? ")
-//    public void closeOrderTaskV3() {
-//        Integer result = lockAndDoJob();
-//        log.info("任务执行结果{}", result);
-//    }
+    @Scheduled(cron = "0/20 * * * * ?")
+    @Async
+    public void closeOrderTaskV3() {
+        log.info("复杂任务执行开始");
+        Integer result = lockAndDoJob();
+        log.info("复杂任务执行结束");
+    }
+
+    @Scheduled(cron = "0/1 * * * * ?")
+    @Async
+    public void testTaskPool() {
+        log.info("简单任务执行开始");
+        try {
+            Thread.sleep(1100);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+        log.info("简单任务执行结束");
+    }
 
     /**
      * 线程池中运行
      */
-    @Scheduled(cron = "0/10 * * * * ? ")
-    public void closeOrderTaskV4() throws Exception {
-        Future<Integer> future = resourceManager.getTaskPool().submit(new Callable<Integer>() {
-            @Override
-            public Integer call() throws Exception {
-                return lockAndDoJob();
-            }
-        });
-        Integer result = future.get();
-        log.info("任务执行结果{}", result);
-    }
+//    @Scheduled(cron = "0/10 * * * * ?")
+//    public void closeOrderTaskV4() throws Exception {
+//        Future<Integer> future = resourceManager.getTaskPool().submit(new Callable<Integer>() {
+//            @Override
+//            public Integer call() throws Exception {
+//                return lockAndDoJob();
+//            }
+//        });
+//        Integer result = future.get();
+//        log.info("任务执行结果{}", result);
+//    }
 
     private Integer lockAndDoJob(){
-        log.info("定时任务启动");
         RLock lock = redisson.getLock(Const.REDIS_LOCK.WX_ACCESS_TOKEN);
         boolean getLock = false;
         try {
@@ -78,13 +93,13 @@ public class JobService {
         return 0;
     }
 
+    //核心业务逻辑
     private void doTask() throws TaskException {
-        log.info("开始执行任务逻辑");
+
         try {
             Thread.sleep(4 * 1000);
         } catch (InterruptedException e) {
             throw new TaskException();
         }
-        log.info("结束执行任务逻辑");
     }
 }

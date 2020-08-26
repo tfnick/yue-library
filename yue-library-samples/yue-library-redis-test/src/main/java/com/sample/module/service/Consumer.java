@@ -47,19 +47,17 @@ public class Consumer implements CommandLineRunner, DisposableBean {
                             log.error("e", e);
                         }
                         Map<StreamMessageId, Map<String, String>> msgHolder = stream.readGroup(Const.REDIS_MESSAGE.CONSUMER_GROUP, consumerId, 1);
-                        log.info("查询消息...");
                         if (msgHolder != null && msgHolder.size() > 0) {
                             for (Map.Entry<StreamMessageId, Map<String, String>> entry : msgHolder.entrySet()) {
                                 Map<String, String> msg = entry.getValue();
                                 log.info("线程ID {},线程任务名 {},消费者ID {},消息ID {},消息体 {}", Thread.currentThread().getId(), Thread.currentThread().getName(), consumerId, entry.getKey(), msg);
                                 //消费了消息，要应答一下
                                 stream.ack(Const.REDIS_MESSAGE.CONSUMER_GROUP, entry.getKey());
-
                                 //如果消费了消息想删除，可以删除掉
                                 //stream.remove(entry.getKey());
                             }
                         } else {
-                            log.info("无消息可消费");
+                            //log.info("无消息可消费");
                         }
                     }
                 }
@@ -74,9 +72,9 @@ public class Consumer implements CommandLineRunner, DisposableBean {
 
     @Override
     public void run(String... args) throws Exception {
-        log.info("启动消息消费线程");
-        //创建topic与consumer
+        //创建topic与consumer group
         RStream<String, String> stream = redisson.getStream(Const.REDIS_MESSAGE.TOPIC);
+        stream.add("0","0");
         List<String> groupNames = ListUtil.toList(Const.REDIS_MESSAGE.CONSUMER_GROUP);
         List<StreamGroup> groups = stream.listGroups();
         groupNames.forEach(group -> {
@@ -93,7 +91,7 @@ public class Consumer implements CommandLineRunner, DisposableBean {
                 stream.createGroup(group);
             }
         });
-        
+        //启动消费者线程
         this.startConsumers();
     }
 }
