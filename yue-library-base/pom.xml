@@ -66,14 +66,10 @@
 		    <version>${jsr305.version}</version>
 		</dependency>
 
-		<!-- ThreadPool -->
+		<!-- threadpool -->
 		<dependency>
 			<groupId>com.github.yjfnypeu</groupId>
 			<artifactId>EasyThread</artifactId>
 		</dependency>
 	</dependencies>
-
-	<repositories>
-
-	</repositories>
 </project>
