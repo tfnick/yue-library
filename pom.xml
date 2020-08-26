@@ -2,10 +2,11 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
+	<!-- 注意spring cloud版本与spring alibaba cloud版本 -->
 	<parent>
 		<groupId>org.springframework.cloud</groupId>
 		<artifactId>spring-cloud-starter-parent</artifactId>
-		<version>Greenwich.SR5</version>
+		<version>Hoxton.SR3</version>
 	</parent>
 	<groupId>ai.ylyue</groupId>
 	<artifactId>yue-library</artifactId>
@@ -49,10 +50,10 @@
 	</modules>
 	
 	<properties>
-		<revision>2.1.2</revision>
+		<revision>2.2.1</revision>
 		<sha1 />
-		<changelist>-SNASPHOT</changelist>
-		<spring-cloud-alibaba.version>2.1.2.RELEASE</spring-cloud-alibaba.version>
+		<changelist>-SNAPSHOT</changelist>
+		<spring-cloud-alibaba.version>2.2.1.RELEASE</spring-cloud-alibaba.version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<java.version>1.8</java.version>
@@ -66,6 +67,9 @@
 		<jpush.version>3.4.4</jpush.version>
 		<httpcore.version>4.4.13</httpcore.version>
 		<httpclient.version>4.5.12</httpclient.version>
+		<redission.version>3.13.3</redission.version>
+		<easythread.version>0.6.0</easythread.version>
+		<schedulerx2.version>1.1.4.RELEASE</schedulerx2.version>
 	</properties>
 	
 	<dependencyManagement>
@@ -262,6 +266,30 @@
 				<artifactId>httpclient</artifactId>
 				<version>${httpclient.version}</version>
 			</dependency>
+
+			<!-- redission -->
+			<dependency>
+				<groupId>org.redisson</groupId>
+				<artifactId>redisson</artifactId>
+				<version>${redission.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.redisson</groupId>
+				<artifactId>redisson-spring-boot-starter</artifactId>
+				<version>${redission.version}</version>
+			</dependency>
+			<!-- threadpool -->
+			<dependency>
+				<groupId>com.github.yjfnypeu</groupId>
+				<artifactId>EasyThread</artifactId>
+				<version>${easythread.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>com.aliyun.schedulerx</groupId>
+				<artifactId>schedulerx2-spring-boot-starter</artifactId>
+				<version>${schedulerx2.version}</version>
+			</dependency>
 		</dependencies>
 	</dependencyManagement>
 	
@@ -269,6 +297,10 @@
 		<repository>
 			<id>aliyun</id>
 			<url>https://maven.aliyun.com/repository/central</url>
+		</repository>
+		<repository>
+			<id>jitpack.io</id>
+			<url>https://www.jitpack.io</url>
 		</repository>
 	</repositories>
 	

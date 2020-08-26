@@ -3,6 +3,8 @@ package ai.yue.library.auth.client.client;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 
+import org.redisson.api.RBucket;
+import org.redisson.api.RedissonClient;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.alibaba.fastjson.JSONObject;
@@ -10,7 +12,6 @@ import com.alibaba.fastjson.JSONObject;
 import ai.yue.library.auth.client.config.properties.AuthProperties;
 import ai.yue.library.base.exception.LoginException;
 import ai.yue.library.base.util.StringUtils;
-import ai.yue.library.data.redis.client.Redis;
 import ai.yue.library.web.util.servlet.ServletUtils;
 import lombok.NoArgsConstructor;
 
@@ -25,7 +26,7 @@ import lombok.NoArgsConstructor;
 public class User {
 	
 	@Autowired
-	protected Redis redis;
+	protected RedissonClient redisson;
 	@Autowired
 	protected HttpServletRequest request;
 	@Autowired
@@ -64,9 +65,10 @@ public class User {
 			}
 			
 			// 3. 查询Redis中token的值
-	        String tokenValue = redis.get(authProperties.getRedisTokenPrefix() + token);
-	        
-	        // 4. 返回userId
+			RBucket<String> bucket = redisson.getBucket(authProperties.getRedisTokenPrefix() + token);
+			String tokenValue = bucket.get();
+
+			// 4. 返回userId
 			return JSONObject.parseObject(tokenValue).getLong(authProperties.getUserKey());
 		} catch (Exception e) {
 			throw new LoginException(e.getMessage());
@@ -90,7 +92,8 @@ public class User {
 			}
 			
 			// 3. 查询Redis中token的值
-			String tokenValue = redis.get(authProperties.getRedisTokenPrefix() + token);
+			RBucket<String> bucket = redisson.getBucket(authProperties.getRedisTokenPrefix() + token);
+			String tokenValue = bucket.get();
 			
 			// 4. 返回POJO
 			T t = JSONObject.parseObject(tokenValue, clazz);

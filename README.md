@@ -17,6 +17,7 @@
 - [网络图文如何发布到微信-重要](https://www.cnblogs.com/gogood/p/6544439.html)
 - [使用redis+@scheduled实现简单任务调度,解决access_token刷新问题](https://www.cnblogs.com/slowcity/p/11671231.html)
 - [@scheduled简单调度的问题](https://www.cnblogs.com/muxi0407/p/11936221.html)
+- [使用redission操作redis](https://www.baeldung.com/redis-redisson)
 
 
 #### app认证机制
@@ -53,3 +54,4 @@
 
 - [hadoop0.23.0](http://blog.sina.com.cn/s/blog_4a1f59bf01010i9r.html)
 - [redission](https://github.com/redisson/redisson.git)
+- [xxl-job](https://github.com/xuxueli/xxl-job)

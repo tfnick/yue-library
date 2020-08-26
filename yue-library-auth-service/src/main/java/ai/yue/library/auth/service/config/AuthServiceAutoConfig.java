@@ -1,5 +1,6 @@
 package ai.yue.library.auth.service.config;
 
+import org.redisson.api.RedissonClient;
 import org.springframework.boot.autoconfigure.AutoConfigureAfter;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnBean;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
@@ -14,7 +15,6 @@ import ai.yue.library.auth.service.client.WxMaUser;
 import ai.yue.library.auth.service.config.properties.AuthServiceProperties;
 import ai.yue.library.auth.service.config.properties.QqProperties;
 import ai.yue.library.auth.service.config.properties.WxOpenProperties;
-import ai.yue.library.data.redis.client.Redis;
 import lombok.extern.slf4j.Slf4j;
 
 /**
@@ -32,7 +32,7 @@ public class AuthServiceAutoConfig {
 	
 	@Bean
 	@Primary
-	@ConditionalOnBean(Redis.class)
+	@ConditionalOnBean(RedissonClient.class)
 	public User user() {
 		log.info("【初始化配置-AuthService-User客户端】配置项：" + AuthServiceProperties.PREFIX + "。Bean：User ... 已初始化完毕。");
 		return new User();
