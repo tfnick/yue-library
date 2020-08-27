@@ -48,10 +48,36 @@
 
 - 网络入口[EIP(弹性IP) + SLB负载均衡] + ecs服务器(2c4G) + ecs自建mysql(2c4G->后期转RDS) + 云redis(256M) + oss(1T)
 
-
-
 #### 近期优秀源码阅读推荐
 
 - [hadoop0.23.0](http://blog.sina.com.cn/s/blog_4a1f59bf01010i9r.html)
 - [redission](https://github.com/redisson/redisson.git)
+- [redisson-spring-boot-starter](https://github.com/tfnick/redisson-spring-boot-starter.git)
 - [xxl-job](https://github.com/xuxueli/xxl-job)
+- [kafka-client](https://github.com/apache/kafka)
+- [spring-kafka](https://github.com/spring-projects/spring-kafka.git)
+- [spring-boot-starter-kafka](https://github.com/spring-projects/spring-boot)
+- [kafka](https://github.com/apache/kafka)
+- [flink](https://github.com/apache/flink)
+- [camunda]
+- [QlExpress]
+
+#### spring framework extension
+
+- [InitializingBean-针对单个Bean]
+- [BeanPostProcessor-针对spring上下文所有bean-1](https://www.cnblogs.com/twelve-eleven/p/8080038.html)
+- [BeanPostProcessor-针对spring上下文所有bean-2](https://www.jianshu.com/p/369a54201943)
+- DisposableBean 
+- CommandLineRunner 
+- @PostConstruct
+- @PreDestroy
+- [AutoCloseable与try(){}catch{}](https://www.cnblogs.com/756623607-zhang/p/9216091.html)
+
+
+#### 架构文章
+
+- [挖财资深架构师：如何建立基于大数据的信贷审批系统](https://www.sohu.com/a/114837765_355140)
+- [图解消息队列用途](https://my.oschina.net/u/4364157/blog/4283168)
+- [【Kafka】消费者客户端小结](https://xie.infoq.cn/article/8e54c04a74f301d4685c1c20d)
+- [【Kafka】生产者客户端小结](https://xie.infoq.cn/article/934a746dc0458e24a03340e6b)
+- [工作流与pipeline区别](https://www.zhihu.com/question/52498881/answer/923260493)

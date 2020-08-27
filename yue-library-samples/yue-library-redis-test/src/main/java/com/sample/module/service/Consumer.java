@@ -33,6 +33,7 @@ public class Consumer implements CommandLineRunner, DisposableBean {
     public void startConsumers() {
         final int MAX_CONSUMER_THREADS = resourceManager.getMAX_CONSUMER_THREADS();
         final RStream<String, String> stream = redisson.getStream(Const.REDIS_MESSAGE.TOPIC);
+
         for (int threadId = 0; threadId < MAX_CONSUMER_THREADS; threadId++) {
             final String consumerId = "consumer" + threadId;
             log.info("启动消费者线程 {}", consumerId);
