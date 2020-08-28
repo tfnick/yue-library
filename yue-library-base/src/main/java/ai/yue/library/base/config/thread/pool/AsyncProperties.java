@@ -5,7 +5,7 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 import lombok.Data;
 
 /**
- * 异步线程池自动配置属性
+ * 异步线程池自动配置属性, 用于在web环境中支持异步调用，一般情况下不需要启用
  * 
  * @author	ylyue
  * @since	2018年11月6日
@@ -39,7 +39,7 @@ public class AsyncProperties {
 	 * <p>
 	 * 默认：10
 	 */
-	private Integer corePoolSize = 10;
+	private Integer corePoolSize = 5;
 	
 	/**
 	 * 最大线程数

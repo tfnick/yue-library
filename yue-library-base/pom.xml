@@ -67,9 +67,9 @@
 		</dependency>
 
 		<!-- threadpool -->
-		<dependency>
-			<groupId>com.github.yjfnypeu</groupId>
-			<artifactId>EasyThread</artifactId>
-		</dependency>
+<!--		<dependency>-->
+<!--			<groupId>com.github.yjfnypeu</groupId>-->
+<!--			<artifactId>EasyThread</artifactId>-->
+<!--		</dependency>-->
 	</dependencies>
 </project>

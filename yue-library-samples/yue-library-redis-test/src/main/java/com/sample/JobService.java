@@ -26,11 +26,10 @@ public class JobService {
      * 单线程中运行
      */
     @Scheduled(cron = "0/20 * * * * ?")
-    @Async
     public void closeOrderTaskV3() {
-        log.info("复杂任务执行开始");
+        log.info("-=复杂任务执行开始=-");
         Integer result = lockAndDoJob();
-        log.info("复杂任务执行结束");
+        log.info("-=复杂任务执行结束=-");
     }
 
 
@@ -38,10 +37,12 @@ public class JobService {
      * 单线程中运行
      */
     @Scheduled(cron = "0/20 * * * * ?")
-    @Async
-    @Lock
-    public void closeOrderTaskV4() {
-        Integer result = lockAndDoJob();
+    @Lock(keys = "abc_key")
+    public void closeOrderTaskV4() throws Exception{
+        log.info("-=开始任务=-");
+        log.info("线程ID {},线程任务名 {},消费者ID {}", Thread.currentThread().getId(), Thread.currentThread().getName());
+        doJob();
+        log.info("-=结束任务=-");
     }
 
 

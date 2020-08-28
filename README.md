@@ -81,3 +81,4 @@
 - [【Kafka】消费者客户端小结](https://xie.infoq.cn/article/8e54c04a74f301d4685c1c20d)
 - [【Kafka】生产者客户端小结](https://xie.infoq.cn/article/934a746dc0458e24a03340e6b)
 - [工作流与pipeline区别](https://www.zhihu.com/question/52498881/answer/923260493)
+- [阿里云vpc与传统架构DCN区、DMZ区的区别]()

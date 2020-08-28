@@ -8,8 +8,7 @@ import org.springframework.util.concurrent.ListenableFuture;
 import org.springframework.web.context.request.RequestContextHolder;
 
 /**
- * @author	ylyue
- * @since	2018年11月27日
+ *
  */
 public class ContextAwareAsyncExecutor extends ThreadPoolTaskExecutor {
 	
@@ -17,12 +16,12 @@ public class ContextAwareAsyncExecutor extends ThreadPoolTaskExecutor {
 	
 	@Override
     public <T> Future<T> submit(Callable<T> task) {
-        return super.submit(new ContextAwareCallable<T>(task, RequestContextHolder.currentRequestAttributes()));
+        return super.submit(new ContextAwareCallable<T>(task, RequestContextHolder.getRequestAttributes()));
     }
 
     @Override
     public <T> ListenableFuture<T> submitListenable(Callable<T> task) {
-        return super.submitListenable(new ContextAwareCallable<T>(task, RequestContextHolder.currentRequestAttributes()));
+        return super.submitListenable(new ContextAwareCallable<T>(task, RequestContextHolder.getRequestAttributes()));
     }
     
 }

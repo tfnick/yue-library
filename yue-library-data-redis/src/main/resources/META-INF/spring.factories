@@ -1,2 +1,2 @@
 org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
-ai.yue.library.data.redis.config.YueRedissonAutoConfig
+ai.yue.library.data.redis.configuration.RedissonConfiguration

@@ -3,9 +3,7 @@ package ai.yue.library.data.oss.config;
 
 import ai.yue.library.data.oss.config.properties.YueAliyunOssProperties;
 import com.aliyun.oss.OSS;
-import com.aliyun.oss.OSSClient;
 import com.aliyun.oss.OSSClientBuilder;
-import com.aliyuncs.OssAcsRequest;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnBean;

@@ -1,0 +1,3 @@
+### API调用参考
+
+- [阿里云sms sdk使用](https://api.aliyun.com/?spm=a2c4g.11186623.2.13.116350a4iYeSGM#/?product=Dysmsapi&version=2017-05-25&api=ModifySmsSign&params={%22RegionId%22:%22default%22,%22SignName%22:%221213%22,%22SignSource%22:%22dfsfa%22,%22Remark%22:%22fdsafa%22,%22SignFileList%22:[{%22FileSuffix%22:%2212%22,%22FileContents%22:%22123%22},{%22FileSuffix%22:%2233%22,%22FileContents%22:%2233%22}]}&tab=DEMO&lang=JAVA)

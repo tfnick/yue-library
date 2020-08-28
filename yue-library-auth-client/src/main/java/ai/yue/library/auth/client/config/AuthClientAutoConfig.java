@@ -1,5 +1,6 @@
 package ai.yue.library.auth.client.config;
 
+import ai.yue.library.data.redis.configuration.RedissonConfiguration;
 import org.redisson.api.RedissonClient;
 import org.springframework.boot.autoconfigure.AutoConfigureAfter;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnBean;
@@ -9,7 +10,6 @@ import org.springframework.context.annotation.Configuration;
 
 import ai.yue.library.auth.client.client.User;
 import ai.yue.library.auth.client.config.properties.AuthProperties;
-import ai.yue.library.data.redis.config.YueRedissonAutoConfig;
 import lombok.extern.slf4j.Slf4j;
 
 /**
@@ -20,7 +20,7 @@ import lombok.extern.slf4j.Slf4j;
  */
 @Slf4j
 @Configuration
-@AutoConfigureAfter(YueRedissonAutoConfig.class)
+@AutoConfigureAfter(RedissonConfiguration.class)
 @EnableConfigurationProperties({ AuthProperties.class })
 public class AuthClientAutoConfig {
 	
