@@ -51,7 +51,7 @@ public class RedissonMQListener implements BeanPostProcessor, Closeable {
             if(annotation!=null){
 
                 if(consumerExecutor == null){
-                    consumerExecutor = Executors.newCachedThreadPool(new NamedThreadFactory("redis-consumer-",false));//new NameableThreadFactory("redisson")
+                    consumerExecutor = Executors.newCachedThreadPool(new NamedThreadFactory("redis-consume-",false));//new NameableThreadFactory("redisson")
                 }
 
                 String topic = annotation.name();
