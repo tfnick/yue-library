@@ -27,9 +27,9 @@ public class JobService {
      */
     @Scheduled(cron = "0/20 * * * * ?")
     public void closeOrderTaskV3() {
-        log.info("-=复杂任务执行开始=-");
+        log.info("-=代码加锁开始=-");
         Integer result = lockAndDoJob();
-        log.info("-=复杂任务执行结束=-");
+        log.info("-=代码加锁结束=-");
     }
 
 
@@ -39,10 +39,9 @@ public class JobService {
     @Scheduled(cron = "0/20 * * * * ?")
     @Lock(keys = "abc_key")
     public void closeOrderTaskV4() throws Exception{
-        log.info("-=开始任务=-");
-        log.info("线程ID {},线程任务名 {},消费者ID {}", Thread.currentThread().getId(), Thread.currentThread().getName());
+        log.info("-=注解加锁开始=-");
         doJob();
-        log.info("-=结束任务=-");
+        log.info("-=注解加锁结束=-");
     }
 
 

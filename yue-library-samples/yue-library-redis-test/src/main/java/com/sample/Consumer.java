@@ -15,8 +15,17 @@ public class Consumer {
      * @param key
      * @param jsonValue
      */
-    @MQListener(name = "testMq",group = "test_group")
+    @MQListener(name = "testMq1",group = "test_group1")
     public void test1(String key,String jsonValue){
+        System.out.println("msg_key=>" + key);
+        System.out.println("msg_value=>" + jsonValue);
+        User user = JSON.parseObject(jsonValue, User.class);
+        System.out.println("用户姓名:" + user.getName());
+    }
+
+
+    @MQListener(name = "testMq2",group = "test_group2",concurrent = 2)
+    public void test2(String key,String jsonValue){
         System.out.println("msg_key=>" + key);
         System.out.println("msg_value=>" + jsonValue);
         User user = JSON.parseObject(jsonValue, User.class);

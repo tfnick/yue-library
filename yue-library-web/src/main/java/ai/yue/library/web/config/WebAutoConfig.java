@@ -3,6 +3,7 @@ package ai.yue.library.web.config;
 import java.util.Arrays;
 import java.util.List;
 
+import ai.yue.library.web.config.properties.TaskSchedulingPoolProperties;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
@@ -32,8 +33,9 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 @Configuration
 @Import({ WebMvcConfig.class, WebMvcRegistrationsConfig.class, ExceptionHandlerConfig.class,
-		CustomArgumentResolversConfig.class, WebMvcEnv.class })
-@EnableConfigurationProperties({ WebProperties.class, JacksonHttpMessageConverterProperties.class, FastJsonHttpMessageConverterProperties.class, UploadProperties.class })
+		CustomArgumentResolversConfig.class, WebMvcEnv.class, TaskSchedulingPoolConfig.class })
+@EnableConfigurationProperties({ WebProperties.class, JacksonHttpMessageConverterProperties.class,
+		FastJsonHttpMessageConverterProperties.class, UploadProperties.class, TaskSchedulingPoolProperties.class})
 public class WebAutoConfig {
 	
 	// CorsConfig-跨域

@@ -2,6 +2,7 @@ package ai.yue.library.data.redis.mq;
 
 import ai.yue.library.base.config.thread.pool.ContextAwareAsyncExecutor;
 import ai.yue.library.data.redis.annotation.MQListener;
+import cn.hutool.core.thread.NamedThreadFactory;
 import org.redisson.api.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -50,7 +51,7 @@ public class RedissonMQListener implements BeanPostProcessor, Closeable {
             if(annotation!=null){
 
                 if(consumerExecutor == null){
-                    consumerExecutor = Executors.newCachedThreadPool();//new NameableThreadFactory("redisson")
+                    consumerExecutor = Executors.newCachedThreadPool(new NamedThreadFactory("redis-consumer-",false));//new NameableThreadFactory("redisson")
                 }
 
                 String topic = annotation.name();
