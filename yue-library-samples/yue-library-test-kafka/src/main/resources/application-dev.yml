@@ -4,7 +4,8 @@ spring:
       bootstrap-servers: 127.0.0.1:9092
     consumer:
       bootstrap-servers: 127.0.0.1:9092
-      enable-auto-commit: false
+      enable-auto-commit: false #true: offset commit by kafka; false: offset commit by springboot
       group-id: yue-kafka-test-group
     listener:
       ack-mode: record
+      missing-topics-fatal: false #kafka主题以及默认分区数建议运维初始化

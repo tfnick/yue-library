@@ -9,6 +9,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.env.EnvironmentPostProcessor;
 import org.springframework.core.env.ConfigurableEnvironment;
 import org.springframework.core.env.MapPropertySource;
+import org.springframework.kafka.support.serializer.JsonSerializer;
 
 /**
  * Created on 2017/9/12.
@@ -37,6 +38,7 @@ public class YueKafkaEnvironmentPostProcessor implements EnvironmentPostProcesso
 
         if (!environment.getPropertySources().contains(KAFKA_BINDER_DEFAULT_PROPERTIES)) {
             Map<String, Object> kafkaBinderDefaultProperties = new HashMap<>();
+            kafkaBinderDefaultProperties.put(JsonSerializer.ADD_TYPE_INFO_HEADERS, false);
             kafkaBinderDefaultProperties.put(SPRING_KAFKA_PRODUCER_KEY_SERIALIZER, ByteArraySerializer.class.getName());
             kafkaBinderDefaultProperties.put(SPRING_KAFKA_PRODUCER_VALUE_SERIALIZER, ByteArraySerializer.class.getName());
             kafkaBinderDefaultProperties.put(SPRING_KAFKA_CONSUMER_KEY_DESERIALIZER, ByteArrayDeserializer.class.getName());

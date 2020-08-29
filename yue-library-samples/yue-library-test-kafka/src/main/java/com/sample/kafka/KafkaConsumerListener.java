@@ -11,7 +11,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class KafkaConsumerListener {
 
-  @KafkaListener(topics = "test_topic")
+  @KafkaListener(topics = Topic.TOPIC_NAME,groupId = "test-consumer")
   public void consumerTestTopicMessage(DemoInfo message) {
     log.info(message.toString());
   }

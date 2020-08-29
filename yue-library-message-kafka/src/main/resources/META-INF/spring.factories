@@ -1,2 +1,4 @@
 org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
 ai.yue.library.message.kafka.config.YueKafkaAutoConfiguration
+org.springframework.boot.env.EnvironmentPostProcessor=\
+ai.yue.library.message.kafka.support.YueKafkaEnvironmentPostProcessor

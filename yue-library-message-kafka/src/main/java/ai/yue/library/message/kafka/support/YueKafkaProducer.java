@@ -36,10 +36,9 @@ public class YueKafkaProducer {
     }
 
     private ProducerRecord<byte[], byte[]> createRecord(String topic, String message) {
-        ProducerRecord<byte[], byte[]> producerRecord = new ProducerRecord<>(topic,
-                message.getBytes(StandardCharsets.UTF_8));
-        producerRecord.headers().add(KafkaUtils.MESSAGE_ID_KEY,
-                UUID.randomUUID().toString().getBytes(StandardCharsets.UTF_8));
+        String mid = UUID.randomUUID().toString();
+        ProducerRecord<byte[], byte[]> producerRecord = new ProducerRecord(topic,message.getBytes(StandardCharsets.UTF_8));
+        producerRecord.headers().add(KafkaUtils.MESSAGE_ID_KEY,mid.getBytes(StandardCharsets.UTF_8));
 
         return producerRecord;
     }
