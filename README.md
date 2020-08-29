@@ -82,3 +82,5 @@
 - [【Kafka】生产者客户端小结](https://xie.infoq.cn/article/934a746dc0458e24a03340e6b)
 - [工作流与pipeline区别](https://www.zhihu.com/question/52498881/answer/923260493)
 - [阿里云vpc与传统架构DCN区、DMZ区的区别]()
+- [docker swarm 网络模型1](https://www.jianshu.com/p/60bccbdb6af9)
+- [docker swarm 网络模型2](https://juejin.im/post/6844903958222209038)
