@@ -4,7 +4,10 @@ import javax.validation.Valid;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 
-
+/**
+ * 适用场景：设计跨系统级别的复杂异步交互API时
+ * @param <T>
+ */
 public class RequestDto<T extends BaseBizRequest> {
     @NotEmpty
     private String requestId;

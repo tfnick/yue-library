@@ -55,6 +55,7 @@ public class Result<T> implements Serializable {
 	private boolean flag;
 	/** count */
 	@JSONField(ordinal = 4)
+	@Deprecated
 	private Long count;
 	/** 数据 */
 	@JSONField(ordinal = 5)

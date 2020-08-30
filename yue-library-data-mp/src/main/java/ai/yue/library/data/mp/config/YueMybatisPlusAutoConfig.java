@@ -4,6 +4,7 @@ import ai.yue.library.data.mp.config.properties.YueMybatisPlusProperties;
 import ai.yue.library.data.mp.handler.MyMetaObjectHandler;
 import com.baomidou.mybatisplus.autoconfigure.MybatisPlusAutoConfiguration;
 import com.baomidou.mybatisplus.extension.plugins.OptimisticLockerInterceptor;
+import com.baomidou.mybatisplus.extension.plugins.PaginationInterceptor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.AutoConfigureAfter;
@@ -46,4 +47,8 @@ public class YueMybatisPlusAutoConfig {
     }
 
 
+    @Bean
+    public PaginationInterceptor paginationInterceptor(){
+        return new PaginationInterceptor();
+    }
 }

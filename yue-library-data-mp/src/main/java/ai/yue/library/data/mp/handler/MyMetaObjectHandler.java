@@ -2,6 +2,7 @@ package ai.yue.library.data.mp.handler;
 
 import ai.yue.library.base.util.DateUtils;
 import ai.yue.library.data.mp.entity.BaseEntity;
+import ai.yue.library.data.mp.entity.BaseVersionEntity;
 import com.baomidou.mybatisplus.core.handlers.MetaObjectHandler;
 import org.apache.ibatis.reflection.MetaObject;
 import org.slf4j.Logger;
@@ -18,7 +19,7 @@ public class MyMetaObjectHandler implements MetaObjectHandler {
 
     @Override
     public void insertFill(MetaObject metaObject) {
-        if(BaseEntity.class.isAssignableFrom(metaObject.getOriginalObject().getClass())){
+        if(BaseVersionEntity.class.isAssignableFrom(metaObject.getOriginalObject().getClass())){
             Date now = DateUtils.date().toJdkDate();
             this.strictInsertFill(metaObject, "createTime", Date.class, now); // 起始版本 3.3.0(推荐使用)
             this.strictInsertFill(metaObject, "updateTime", Date.class, now); // 起始版本 3.3.0(推荐使用)
@@ -26,12 +27,16 @@ public class MyMetaObjectHandler implements MetaObjectHandler {
             if (metaObject.getObjectWrapper().hasSetter(VERSION)) {
                 this.setFieldValByName(VERSION, 1,metaObject);
             }
+        } else if (BaseEntity.class.isAssignableFrom(metaObject.getOriginalObject().getClass())) {
+            Date now = DateUtils.date().toJdkDate();
+            this.strictInsertFill(metaObject, "createTime", Date.class, now); // 起始版本 3.3.0(推荐使用)
+            this.strictInsertFill(metaObject, "updateTime", Date.class, now); // 起始版本 3.3.0(推荐使用)
         }
     }
 
     @Override
     public void updateFill(MetaObject metaObject) {
-        if(BaseEntity.class.isAssignableFrom(metaObject.getOriginalObject().getClass())){
+        if(BaseVersionEntity.class.isAssignableFrom(metaObject.getOriginalObject().getClass())){
             this.setFieldValByName("updateTime", DateUtils.date().toJdkDate(),metaObject); // 通用填充方法
         }
     }

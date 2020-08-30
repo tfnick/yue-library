@@ -13,9 +13,6 @@ public class BaseEntity {
     protected Date createTime;
     @TableField(value = "update_time", fill = FieldFill.INSERT_UPDATE)
     protected Date updateTime;
-    @TableField(value = "version",fill = FieldFill.INSERT)
-    @Version
-    protected Integer version;
 
     public Date getCreateTime() {
         return createTime;
@@ -33,11 +30,4 @@ public class BaseEntity {
         this.updateTime = updateTime;
     }
 
-    public Integer getVersion() {
-        return version;
-    }
-
-    public void setVersion(Integer version) {
-        this.version = version;
-    }
 }

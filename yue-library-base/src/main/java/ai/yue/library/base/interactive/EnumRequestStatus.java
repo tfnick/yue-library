@@ -1,8 +1,8 @@
 package ai.yue.library.base.interactive;
 
 public enum EnumRequestStatus {
-    SUCCESS("S", "请求成功"),
-    FAIL("F","请求失败");
+    SUCCESS("1", "请求成功"),
+    FAIL("0","请求失败");
 
     public String code;
 

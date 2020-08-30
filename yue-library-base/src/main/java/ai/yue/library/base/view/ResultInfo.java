@@ -75,6 +75,7 @@ public class ResultInfo {
 	 * @param data 数据
 	 * @return HTTP请求，最外层响应对象
 	 */
+	@Deprecated
 	public static <T> Result<T> success(Long count, T data) {
         Result<T> result = new Result<T>(ResultEnum.SUCCESS.getCode(), ResultEnum.SUCCESS.getMsg(), true, count, data);
         return result;
@@ -87,6 +88,7 @@ public class ResultInfo {
 	 * @param data		数据
 	 * @return HTTP请求，最外层响应对象
 	 */
+	@Deprecated
 	public static <T> Result<T> success(Integer code, Long count, T data) {
         Result<T> result = new Result<T>(code, ResultEnum.SUCCESS.getMsg(), true, count, data);
         return result;
