@@ -6,8 +6,10 @@ import org.camunda.bpm.client.ExternalTaskClient;
 import org.springframework.beans.factory.DisposableBean;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.CommandLineRunner;
+import org.springframework.stereotype.Component;
 
 @Slf4j
+@Component
 public class Client implements DisposableBean, CommandLineRunner {
 
     @Value("${camunda.bpm.external.server-url}")

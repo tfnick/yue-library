@@ -23,8 +23,8 @@ public class StartController {
     public Result<?> startProcess(){
         Map vars = new HashMap<>();
         vars.put(Const.MNO, UUIDUtils.getOrderNo_19());
-        ProcessInstance pi = runtimeService.startProcessInstanceById("DEMO_PD_ID", vars);
-        return ResultInfo.success(pi);
+        ProcessInstance pi = runtimeService.startProcessInstanceByKey("DEMO_PD_ID", vars);
+        return ResultInfo.success(pi.getProcessDefinitionId());
     }
 
     @GetMapping("/query")
