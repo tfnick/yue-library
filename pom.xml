@@ -51,7 +51,7 @@
 	
 	<properties>
 		<!-- 整个工程版本 -->
-		<revision>2.2.2</revision>
+		<revision>2.2.2-SNAPSHOT</revision>
 		<sha1 />
 		<changelist></changelist>
 		<spring-cloud-alibaba.version>2.2.1.RELEASE</spring-cloud-alibaba.version>
@@ -316,16 +316,16 @@
 			<url>https://www.jitpack.io</url>
 		</repository>
 	</repositories>
-	
+
 	<distributionManagement>
+		<repository>
+			<id>rdc-releases</id>
+			<url>https://repo.rdc.aliyun.com/repository/133801-release-K6gaIO/</url>
+		</repository>
 		<snapshotRepository>
 			<id>rdc-snapshots</id>
-			<url>https://repo.rdc.aliyun.com/repository/112516-snapshot-lGpQXU/</url>
+			<url>https://repo.rdc.aliyun.com/repository/133801-snapshot-yQZqMQ/</url>
 		</snapshotRepository>
-		<repository>
-			<id>oss-releases</id>
-			<url>https://oss.sonatype.org/service/local/staging/deploy/maven2</url>
-		</repository>
 	</distributionManagement>
 	
 	<licenses>
@@ -346,13 +346,17 @@
 				<role>CA</role>
 			</roles>
 		</developer>
+		<developer>
+			<name>tfnick</name>
+			<email>tfnick@qq.com</email>
+			<url></url>
+			<organization>anisebean</organization>
+			<organizationUrl>https://github.com/tfnick</organizationUrl>
+			<roles>
+				<role>CA</role>
+			</roles>
+		</developer>
 	</developers>
-
-	<scm>
-		<url>https://gitee.com/yl-yue/yue-library</url>
-		<connection>https://gitee.com/yl-yue/yue-library.git</connection>
-		<developerConnection>https://gitee.com/yl-yue</developerConnection>
-	</scm>
 
 	<profiles>
 		<profile>
