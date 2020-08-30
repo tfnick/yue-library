@@ -5,7 +5,7 @@
 	<parent>
 		<groupId>ai.ylyue</groupId>
 		<artifactId>yue-library</artifactId>
-		<version>${revision}${sha1}${changelist}</version>
+		<version>${revision}</version>
 	</parent>
 	<artifactId>yue-library-base-crypto</artifactId>
 	<name>${project.artifactId}</name>

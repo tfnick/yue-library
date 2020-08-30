@@ -5,7 +5,7 @@
 	<parent>
 		<groupId>ai.ylyue</groupId>
 		<artifactId>yue-library</artifactId>
-		<version>${revision}${sha1}${changelist}</version>
+		<version>${revision}</version>
 	</parent>
 	<artifactId>yue-library-webflux</artifactId>
 	<name>yue-library-webflux</name>
