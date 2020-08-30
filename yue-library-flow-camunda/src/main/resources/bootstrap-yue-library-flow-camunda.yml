@@ -2,3 +2,5 @@ spring:
   profiles:
     include:
       - yue-library-base
+      - yue-library-data-mp
+

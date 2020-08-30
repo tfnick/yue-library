@@ -18,6 +18,11 @@
     </properties>
 
     <dependencies>
+        <dependency>
+            <groupId>ai.ylyue</groupId>
+            <artifactId>yue-library-base</artifactId>
+        </dependency>
+
         <!-- mybatis plus -->
         <dependency>
             <groupId>ai.ylyue</groupId>
