@@ -50,6 +50,7 @@
 	</modules>
 	
 	<properties>
+		<!-- 整个工程版本 -->
 		<revision>2.2.1-SNAPSHOT</revision>
 		<sha1 />
 		<changelist></changelist>
