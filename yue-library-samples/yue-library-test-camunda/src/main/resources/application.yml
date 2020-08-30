@@ -41,5 +41,5 @@ camunda:
     authorization:
       enabled: true
     external:
-      server-url:
+      server-url: http://localhost:${server.port}${server.servlet.context-path}/engine-rest
       interval: 30000 #毫秒
