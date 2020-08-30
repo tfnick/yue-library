@@ -21,13 +21,13 @@
 		<dependency>
 			<groupId>com.egzosn</groupId>
 			<artifactId>pay-java-ali</artifactId>
-			<optional>true</optional>
+<!--			<optional>true</optional>-->
 		</dependency>
 		
 		<dependency>
 			<groupId>com.egzosn</groupId>
 			<artifactId>pay-java-wx</artifactId>
-			<optional>true</optional>
+<!--			<optional>true</optional>-->
 		</dependency>
 	</dependencies>
 </project>
