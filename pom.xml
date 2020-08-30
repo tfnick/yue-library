@@ -307,13 +307,21 @@
 	</dependencyManagement>
 	
 	<repositories>
+<!--		<repository>-->
+<!--			<id>aliyun</id>-->
+<!--			<url>https://maven.aliyun.com/repository/central</url>-->
+<!--		</repository>-->
+<!--		<repository>-->
+<!--			<id>jitpack.io</id>-->
+<!--			<url>https://www.jitpack.io</url>-->
+<!--		</repository>-->
 		<repository>
-			<id>aliyun</id>
-			<url>https://maven.aliyun.com/repository/central</url>
+			<id>rdc-releases</id>
+			<url>https://repo.rdc.aliyun.com/repository/133801-release-K6gaIO/</url>
 		</repository>
 		<repository>
-			<id>jitpack.io</id>
-			<url>https://www.jitpack.io</url>
+			<id>rdc-snapshots</id>
+			<url>https://repo.rdc.aliyun.com/repository/133801-snapshot-yQZqMQ/</url>
 		</repository>
 	</repositories>
 
