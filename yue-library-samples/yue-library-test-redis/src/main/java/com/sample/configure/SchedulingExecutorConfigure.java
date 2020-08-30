@@ -4,15 +4,14 @@ import cn.hutool.core.thread.NamedThreadFactory;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.scheduling.annotation.SchedulingConfigurer;
-import org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor;
 import org.springframework.scheduling.config.ScheduledTaskRegistrar;
-
 import java.util.concurrent.Executor;
 import java.util.concurrent.Executors;
-import java.util.concurrent.ThreadPoolExecutor;
 
 
-
+/**
+ * 此配置已经在library中实现
+ */
 @Configuration
 public class SchedulingExecutorConfigure implements SchedulingConfigurer {
 
@@ -23,7 +22,7 @@ public class SchedulingExecutorConfigure implements SchedulingConfigurer {
 
     @Bean(destroyMethod="shutdown")
     public Executor taskExecutor() {
-        return Executors.newScheduledThreadPool(10,new NamedThreadFactory("scheduling-",false)); //指定线程池大小
+        return Executors.newScheduledThreadPool(5,new NamedThreadFactory("scheduling-",false)); //指定线程池大小
     }
 
 }
