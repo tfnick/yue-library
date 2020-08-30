@@ -4,9 +4,9 @@ spring:
   application:
     name: app-mbatis-plus
   profiles:
-    include:
-      - yue-library-base
-      - yue-library-data-mp
-      - yue-library-web
+#    include:
+#      - yue-library-base
+#      - yue-library-data-mp
+#      - yue-library-web
     active:
       - dev
