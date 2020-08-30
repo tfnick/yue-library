@@ -1,5 +1,6 @@
 package com.sample.external.client;
 
+import ai.yue.library.flow.camunda.listener.FlowConst;
 import com.sample.Const;
 import org.camunda.bpm.client.task.ExternalTask;
 import org.camunda.bpm.client.task.ExternalTaskHandler;
@@ -25,11 +26,11 @@ public class ExternalHandlerProxy implements ExternalTaskHandler{
 
     public void execute(ExternalTask externalTask, ExternalTaskService externalTaskService){
         try {
-            String missionNo = externalTask.getVariable(Const.MNO);
+            String missionNo = externalTask.getVariable(FlowConst.MNO);
             //String activityId = externalTask.getActivityId();
             //String processDefinitionId = externalTask.getProcessDefinitionId();
 
-            MDC.put(Const.MNO, missionNo);
+            MDC.put(FlowConst.MNO, missionNo);
             //MDC.put("activityId", activityId);
             //MDC.put("processDefinitionId", processDefinitionId);
 
@@ -38,7 +39,7 @@ public class ExternalHandlerProxy implements ExternalTaskHandler{
             logger.error("外部任务异常", e);
             throw e;
         }finally {
-            MDC.remove(Const.MNO);
+            MDC.remove(FlowConst.MNO);
         }
 
     }

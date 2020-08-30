@@ -4,6 +4,7 @@ import org.camunda.bpm.engine.delegate.DelegateExecution;
 import org.camunda.bpm.engine.delegate.ExecutionListener;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.slf4j.MDC;
 
 /**
  * @author liuwenxue
@@ -21,7 +22,7 @@ public class MdcDelegateListener implements ExecutionListener {
 
         if ("start".equals(eventName)) {
 
-            //MDC.put(FmpConstants.MDC_MISSION_NO, (String) execution.getVariable(FmpConstants.MDC_MISSION_NO));
+            MDC.put(FlowConst.MNO, (String) execution.getVariable(FlowConst.MNO));
             //MDC.put(FmpConstants.MDC_PROCESS_INS_IN, execution.getProcessInstanceId());
 
             log.info(execution.getProcessDefinitionId() + " - " +  eventName + " - " + execution.getCurrentActivityName());
@@ -29,7 +30,7 @@ public class MdcDelegateListener implements ExecutionListener {
 
             log.info(execution.getProcessDefinitionId() + " - " +  eventName + " - " + execution.getCurrentActivityName());
 
-            //MDC.remove(FmpConstants.MDC_MISSION_NO);
+            MDC.remove(FlowConst.MNO);
             //MDC.remove(FmpConstants.MDC_PROCESS_INS_IN);
         } else {
             //nothing to do

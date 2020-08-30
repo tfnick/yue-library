@@ -3,7 +3,7 @@ package com.sample.controller;
 import ai.yue.library.base.util.UUIDUtils;
 import ai.yue.library.base.view.Result;
 import ai.yue.library.base.view.ResultInfo;
-import com.sample.Const;
+import ai.yue.library.flow.camunda.listener.FlowConst;
 import org.camunda.bpm.engine.RuntimeService;
 import org.camunda.bpm.engine.runtime.ProcessInstance;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,7 +22,7 @@ public class StartController {
     @GetMapping("/post")
     public Result<?> startProcess(){
         Map vars = new HashMap<>();
-        vars.put(Const.MNO, UUIDUtils.getOrderNo_19());
+        vars.put(FlowConst.MNO, UUIDUtils.getOrderNo_19());
         ProcessInstance pi = runtimeService.startProcessInstanceByKey("DEMO_PD_ID", vars);
         return ResultInfo.success(pi.getProcessDefinitionId());
     }
