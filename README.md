@@ -50,6 +50,7 @@
 
 #### 近期优秀源码阅读推荐
 
+- [hadoop学习之路](https://developer.aliyun.com/article/28400)
 - [hadoop0.23.0](http://blog.sina.com.cn/s/blog_4a1f59bf01010i9r.html)
 - [redission](https://github.com/redisson/redisson/wiki/Redisson%E9%A1%B9%E7%9B%AE%E4%BB%8B%E7%BB%8D)
 - [redisson-spring-boot-starter](https://github.com/tfnick/redisson-spring-boot-starter.git)
