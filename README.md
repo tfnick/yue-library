@@ -86,3 +86,4 @@
 - [docker swarm 网络模型1](https://www.jianshu.com/p/60bccbdb6af9)
 - [docker swarm 网络模型2](https://juejin.im/post/6844903958222209038)
 - [RPC架构选型](https://www.jianshu.com/p/b0343bfd216e)
+- [模式细品](https://www.cnblogs.com/jackson-yqj/p/7784694.html)
