@@ -1,6 +1,5 @@
 package ai.yue.library.data.redis.mq;
 
-import ai.yue.library.base.config.thread.pool.ContextAwareAsyncExecutor;
 import ai.yue.library.data.redis.annotation.MQListener;
 import cn.hutool.core.thread.NamedThreadFactory;
 import org.redisson.api.*;
@@ -10,7 +9,6 @@ import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.config.BeanPostProcessor;
 import org.springframework.core.annotation.AnnotationUtils;
-import org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor;
 import org.springframework.util.ReflectionUtils;
 
 import java.io.Closeable;

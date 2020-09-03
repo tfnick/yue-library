@@ -6,7 +6,6 @@ import org.redisson.api.RedissonClient;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.scheduling.annotation.Async;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 
@@ -18,7 +17,7 @@ public class JobService {
     protected static final Logger log = LoggerFactory.getLogger(JobService.class);
 
     @Autowired
-    RedissonClient redisson;
+    RedissonClient redissonClient;
 
     String LOCK_KEY_WX_ACCESS_TOKEN = "WX_ACCESS_TOKEN";
 
@@ -46,7 +45,7 @@ public class JobService {
 
 
     private Integer lockAndDoJob(){
-        RLock lock = redisson.getLock(LOCK_KEY_WX_ACCESS_TOKEN);
+        RLock lock = redissonClient.getLock(LOCK_KEY_WX_ACCESS_TOKEN);
         boolean getLock = false;
         try {
             // 若任务执行时间过短，则有可能在等锁的过程中2个服务任务都会获取到锁，
