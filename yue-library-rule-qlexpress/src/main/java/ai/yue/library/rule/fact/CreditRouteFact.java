@@ -28,4 +28,6 @@ public class CreditRouteFact {
     //未匹配策略参数
     Boolean reserve = true;
     String reserveCapitalNo = CapitalProduct.AABB201101.name();
+    Boolean demote = true;
+    List<String> demoteCapitals = Lists.asList(CapitalProduct.BABB201202.name());
 }
