@@ -28,10 +28,10 @@ public class MQController {
     @ResponseBody
     public void testMq(){
         RStream testMq1 = redissonClient.getStream("testMq1");
-        User message = new User();
-        message.setAge(22);
-        message.setName("王阳明");
-        testMq1.add("12", JSON.toJSONString(message));
+        User user = new User();
+        user.setAge(22);
+        user.setName("王阳明");
+        testMq1.add("12", JSON.toJSONString(user));
     }
 
     @RequestMapping("testMq1/anno")
@@ -39,10 +39,10 @@ public class MQController {
     @MQPublish(name="testMq1")
     User mock(){
         log.info("注解发送消息，消息ID随机生产");
-        User u =new User();
-        u.setName(RandomUtil.randomString(6));
-        u.setAge(RandomUtil.randomInt(20, 40));
-        return u;
+        User user =new User();
+        user.setName(RandomUtil.randomString(6));
+        user.setAge(RandomUtil.randomInt(20, 40));
+        return user;
     }
 
     /**
@@ -52,10 +52,10 @@ public class MQController {
     @ResponseBody
     public void testMq2(){
         RStream testMq1 = redissonClient.getStream("testMq1");
-        User message = new User();
-        message.setAge(36);
-        message.setName("李白");
-        testMq1.add("198", JSON.toJSONString(message));
+        User user = new User();
+        user.setAge(36);
+        user.setName("李白");
+        testMq1.add("198", JSON.toJSONString(user));
     }
 
 }

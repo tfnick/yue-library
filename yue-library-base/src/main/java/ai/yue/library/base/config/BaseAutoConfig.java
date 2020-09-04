@@ -1,5 +1,6 @@
 package ai.yue.library.base.config;
 
+import ai.yue.library.base.config.thread.pool.SchedulingExecutorConfigure;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;
@@ -30,12 +31,11 @@ import javax.net.ssl.SSLContext;
  */
 @Slf4j
 @Configuration
-@Import({ AsyncConfig.class, ApplicationContextUtils.class, SpringUtils.class, DateTimeFormatConfig.class })
+@Import({ AsyncConfig.class, SchedulingExecutorConfigure.class,ApplicationContextUtils.class, SpringUtils.class, DateTimeFormatConfig.class})
 @EnableConfigurationProperties({ ApiVersionProperties.class, ExceptionHandlerProperties.class, RestProperties.class,
 		CorsProperties.class, })
 public class BaseAutoConfig {
-	//https://www.jianshu.com/p/08c5cad9c566
-	// RestTemplate-HTTPS客户端
+
 //	@Bean
 //	public HttpClient httpClient() {
 //		Registry<ConnectionSocketFactory> registry = RegistryBuilder.<ConnectionSocketFactory>create()

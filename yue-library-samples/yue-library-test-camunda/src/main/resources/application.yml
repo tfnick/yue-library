@@ -4,6 +4,9 @@ server:
     context-path: /core
 
 spring:
+  include:
+    - yue-library-flow-camunda
+
   datasource:
     type: com.alibaba.druid.pool.DruidDataSource
     driver-class-name: com.mysql.cj.jdbc.Driver

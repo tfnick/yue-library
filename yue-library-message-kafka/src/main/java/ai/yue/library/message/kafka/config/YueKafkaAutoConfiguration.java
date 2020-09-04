@@ -29,7 +29,7 @@ import org.springframework.kafka.support.converter.StringJsonMessageConverter;
  */
 @Slf4j
 @Configuration
-@EnableConfigurationProperties(KafkaProperties.class)
+@EnableConfigurationProperties({KafkaProperties.class})
 @ConditionalOnClass({KafkaTemplate.class, EnableKafka.class})
 @AutoConfigureAfter({KafkaAutoConfiguration.class})
 public class YueKafkaAutoConfiguration {
@@ -60,7 +60,7 @@ public class YueKafkaAutoConfiguration {
         return new StringJsonMessageConverter(objectMapper);
     }
 
-    @Bean(name = "kafkaListenerContainerFactory")
+    @Bean(name="kafkaListenerContainerFactory")
     public ConcurrentKafkaListenerContainerFactory<?, ?> kafkaListenerContainerFactory(
             ConcurrentKafkaListenerContainerFactoryConfigurer configurer,
             ConsumerFactory<Object, Object> kafkaConsumerFactory) {

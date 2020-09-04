@@ -1,8 +1,16 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: redis-test-app
+  profiles:
+    include:
+      - yue-library-data-redis
+    active:
+      - dev
+
 yue:
   redisson:
     singleServerConfig:
       address: 127.0.0.1:6379
-
-#  thread-pool:
-#    async:
-#      enabled: true
