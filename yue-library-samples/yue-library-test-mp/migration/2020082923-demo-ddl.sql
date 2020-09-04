@@ -6,4 +6,4 @@ CREATE TABLE `t_demo` (
   `update_time` datetime DEFAULT NULL,
   `version` int DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='示例表'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4  COMMENT='示例表'
