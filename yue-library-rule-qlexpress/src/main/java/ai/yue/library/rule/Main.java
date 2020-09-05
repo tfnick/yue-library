@@ -16,11 +16,11 @@ public class Main {
         System.out.println(r);
 
         CreditRouteFact fact = new CreditRouteFact();
-        fact.setX1(true);
-        fact.setX2(100);
-        fact.setX3(200L);
-        fact.getIps().put("custLevel", 5);
-        context.put("fact", fact);
+//        fact.setX1(true);
+//        fact.setX2(100);
+//        fact.setX3(200L);
+//        fact.getIps().put("custLevel", 5);
+//        context.put("fact", fact);
 
         express = "fact.x2 + fact.x3";
         r = runner.execute(express, context, null, true, false);
